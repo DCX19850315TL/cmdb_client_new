@@ -6,12 +6,15 @@
 @file: BasePlugin.py
 @time: 2018/4/3 18:01
 '''
-import salt.client
-import json
 import os
+import salt.client
+#通过salt获取服务器列表
 
-def server_list():
+def server():
     local = salt.client.LocalClient()
-    server_keys = local.key
+    cmd = local.cmd('*','cmd.run',['whoami'])
+    return cmd
 
-    return server_keys
+server()
+
+

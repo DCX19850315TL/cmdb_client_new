@@ -6,3 +6,6 @@
 @file: index.py
 @time: 2018/4/3 16:55
 '''
+import os
+
+print (os.getcwd())
