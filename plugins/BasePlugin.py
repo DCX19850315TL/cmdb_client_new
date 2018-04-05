@@ -11,9 +11,16 @@ import salt.client
 #通过salt获取服务器列表
 
 def server():
+    a = {'a':'1'}
+
     local = salt.client.LocalClient()
     cmd = local.cmd('*','cmd.run',['whoami'])
-    return cmd
+
+    a.update(cmd)
+    print a
+    #return cmd
+
+
 
 server()
 
