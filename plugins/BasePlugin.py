@@ -7,21 +7,21 @@
 @time: 2018/4/3 18:01
 '''
 import os
+import commands
 import salt.client
 #通过salt获取服务器列表
+def server_list(cmd):
+    list = commands.getoutput(cmd)
+    print type(list)
 
-def server():
-    a = {'a':'1'}
+#b = a.update('salt-key -L --output=json')
+#server_list('salt-key -L --output=json')
 
-    local = salt.client.LocalClient()
-    cmd = local.cmd('*','cmd.run',['whoami'])
+server_list('salt-key -L --output=json')
 
-    a.update(cmd)
-    print a
-    #return cmd
-
-
-
-server()
-
+'''
+a = {'a':1,'b':2}
+print a['a']
+print type(a)
+'''
 
